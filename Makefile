@@ -60,7 +60,7 @@ configure_hadoop:
 	${hadoop_home}/bin/hdfs namenode -format -force
 	echo '# Adding Hadoop Home' >>~/.bashrc
 	echo 'export HADOOP_HOME='"${hadoop_home}" >> ~/.bashrc
-	echo 'export PATH='"${PATH}"':'"${HADOOP_HOME}"'/bin:'"${HADOOP_HOME}"'/sbin' >> ~/.bashrc
+	echo 'export PATH='"${PATH}"':'"${hadoop_home}"'/bin:'"${hadoop_home}"'/sbin' >> ~/.bashrc
 	source ~/.bashrc
 	ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
@@ -73,5 +73,5 @@ configure_spark:
 	# Set up Spark environment variables
 	echo '# Adding Spark Variables' >>~/.bashrc
 	echo 'export SPARK_HOME='"${spark_home}" >> ~/.bashrc
-	echo 'export PATH='"${PATH}"':'"${SPARK_HOME}"'/bin:' >> ~/.bashrc
+	echo 'export PATH='"${PATH}"':'"${spark_home}"'/bin:' >> ~/.bashrc
 	source ~/.bashrc
