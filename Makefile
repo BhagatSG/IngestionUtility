@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(dir $(mkfile_path))
 hive_home := $(addsuffix tools/hive, $(current_dir))
@@ -17,6 +18,7 @@ environment_setup:
 	cat ~/.bashrc
 	echo '# Adding Java Home' >>~/.bashrc
 	echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >>~/.bashrc
+	source ~/.bashrc
 
 
 download: download_hadoop download_spark download_hive
