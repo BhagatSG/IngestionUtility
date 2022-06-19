@@ -32,12 +32,13 @@ download_hive:
 	mkdir -p ${current_dir}tools
 	cd ${current_dir}tools; wget https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz && tar -xvf *.gz && rm -rf *.gz && mv apache-hive-3.1.3-bin hive
 
-
-configure_hadoop:
+configure:
         #Set JAVA_HOME explicitly
 	sed -i "s#.*export JAVA_HOME.*#export JAVA_HOME=${JAVA_HOME}#g" ${hadoop_home}/etc/hadoop/hadoop-env.sh 
 	#Set HADOOP_CONF_DIR explicitly
 	sed -i "s#.*export HADOOP_CONF_DIR.*#export HADOOP_CONF_DIR=${hadoop_home}/etc/hadoop#" ${hadoop_home}/etc/hadoop/hadoop-env.sh
+
+configure_hadoop:
 	#define fs.default.name in core-site.xml
 	sed -i '/<\/configuration>/i <property><name>fs.default.name</name><value>hdfs://localhost:9000</value></property>' ${hadoop_home}/etc/hadoop/core-site.xml
 	#set dfs.replication, dfs.namenode.name.dir & dfs.datanode.data.dir in hdfs-site.xml
