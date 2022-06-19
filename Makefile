@@ -1,4 +1,3 @@
-SHELL := /bin/bash
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(dir $(mkfile_path))
 hive_home := $(addsuffix tools/hive, $(current_dir))
@@ -15,7 +14,7 @@ environment:
 	cat ~/.bashrc
 	echo '# Adding Java Home' >>~/.bashrc
 	echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >>~/.bashrc
-	source ~/.bashrc
+	echo "source ~/.bashrc"
 
 
 download: download_hadoop download_spark download_hive
@@ -61,7 +60,7 @@ configure_hadoop:
 	echo '# Adding Hadoop Home' >>~/.bashrc
 	echo 'export HADOOP_HOME='"${hadoop_home}" >> ~/.bashrc
 	echo 'export PATH='"${PATH}"':'"${hadoop_home}"'/bin:'"${hadoop_home}"'/sbin' >> ~/.bashrc
-	source ~/.bashrc
+	echo "source ~/.bashrc"
 	ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 	chmod 0600 ~/.ssh/authorized_keys
@@ -74,4 +73,4 @@ configure_spark:
 	echo '# Adding Spark Variables' >>~/.bashrc
 	echo 'export SPARK_HOME='"${spark_home}" >> ~/.bashrc
 	echo 'export PATH='"${PATH}"':'"${spark_home}"'/bin:' >> ~/.bashrc
-	source ~/.bashrc
+	echo "source ~/.bashrc"
