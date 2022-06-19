@@ -10,10 +10,7 @@ spark_home := $(addsuffix tools/spark, $(current_dir))
 #         Environment Set Up            #
 #########################################
 
-
-env: environment_setup
-
-environment_setup:
+environment:
 	sudo apt-get install -y openjdk-8-jdk
 	cat ~/.bashrc
 	echo '# Adding Java Home' >>~/.bashrc
@@ -35,8 +32,6 @@ download_hive:
 	mkdir -p ${current_dir}tools
 	cd ${current_dir}tools; wget https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz && tar -xvf *.gz && rm -rf *.gz && mv apache-hive-3.1.3-bin hive
 
-
-configure: configure_hadoop configure_spark
 
 configure_hadoop:
 	#define fs.default.name in core-site.xml
