@@ -1,0 +1,2 @@
+object_type;validation_query
+SHOP;trc_id is not NULL and title is not null and last_update is not null
