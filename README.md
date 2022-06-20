@@ -22,8 +22,11 @@ We can use crontab for scheduling of Job.
 Shell script will check in every 15 minutes whether there is new file in landing zone or not. If there will be new file, first it will push it to HDFS and then will do a spark submit.
 
 Steps in script.sh
+
 1)Check if there is any file in landing zone
+
 2)If found any file, move it to hdfs and trigger spark submit with hdfs path
+
 3)Move file to archive so that it will not get picked up in next schedule
 
 ```
