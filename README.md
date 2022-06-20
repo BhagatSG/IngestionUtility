@@ -7,6 +7,7 @@ This project cover 3 part of Bol File Ingestion Usecase:
 
 ## Spark Scala Batch Ingestion Job
 It is basically spark scala maven project.
+
 features:
 1) Data Dictionary feature
 2) Data Validation/Filtering
