@@ -1,6 +1,5 @@
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(dir $(mkfile_path))
-hive_home := $(addsuffix tools/hive, $(current_dir))
 hadoop_home := $(addsuffix tools/hadoop, $(current_dir))
 spark_home := $(addsuffix tools/spark, $(current_dir))
 
@@ -17,7 +16,7 @@ environment:
 	echo "source ~/.bashrc"
 
 
-download: download_hadoop download_spark download_hive
+download: download_hadoop download_spark
 
 download_hadoop:
 	mkdir -p ${current_dir}tools
@@ -27,9 +26,6 @@ download_spark:
 	mkdir -p ${current_dir}tools
 	cd ${current_dir}tools; wget https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz && tar -xvf *.tgz && rm -rf *.tgz && mv spark-3.2.1-bin-hadoop3.2 spark
 
-download_hive:
-	mkdir -p ${current_dir}tools
-	cd ${current_dir}tools; wget https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz && tar -xvf *.gz && rm -rf *.gz && mv apache-hive-3.1.3-bin hive
 
 configure:
         #Set JAVA_HOME explicitly
