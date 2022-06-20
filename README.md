@@ -1,8 +1,8 @@
 # Bol Ingestion Application
 
-This project provides 3 usecases:
-1) Spark Scala Batch Ingestion Job
-2) Schedule of Batch Ingestion job using crontab
+This project cover 3 part of Bol File Ingestion Usecase:
+1) Spark Scala Batch File Ingestion Job
+2) Schedule of Batch File Ingestion job using crontab
 3) Spark Hadoop Local Developement Environment
 
 ## Spark Scala Batch Ingestion Job
