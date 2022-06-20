@@ -47,4 +47,5 @@ Package :
 ```
 
 Move the Build Jar to directory you have mentioned in your spark submit in crontab shell script.
+
 TO-DO: can be automated using Makefile for automated deployment.
